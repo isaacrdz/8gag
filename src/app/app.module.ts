@@ -15,11 +15,15 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { firebaseConfig } from "../config/firebase.config";
 
+//Pipes
+import { PlaceholderPipe}  from "../pipes/placeholder/placeholder";
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    SubirPage
+    SubirPage,
+    PlaceholderPipe
   ],
   imports: [
     BrowserModule,
