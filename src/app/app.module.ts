@@ -18,6 +18,13 @@ import { firebaseConfig } from "../config/firebase.config";
 //Pipes
 import { PlaceholderPipe}  from "../pipes/placeholder/placeholder";
 
+
+//Plugins
+import { Camera } from '@ionic-native/camera';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { CargaArchivosService } from '../providers/carga-archivos/carga-archivos';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -41,7 +48,10 @@ import { PlaceholderPipe}  from "../pipes/placeholder/placeholder";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Camera,
+    ImagePicker,
+    CargaArchivosService,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}

@@ -24,8 +24,8 @@
     <ion-input type="text" [(ngModel)]="titulo"></ion-input>
   </ion-item>
 
-  <ion-item>
-    <img src="http://lorempixel.com/800/400/" alt="">
+  <ion-item *ngIf="imgPreview">
+    <img [src]="imgPreview" alt="">
   </ion-item>
 
 
@@ -35,10 +35,10 @@
 <ion-grid>
   <ion-row>
     <ion-col>
-      <button ion-button block ion-left > <ion-icon name="photos"> Seleccionar</ion-icon></button>
+      <button ion-button block ion-left (click)="seleccionar_fotos()"> <ion-icon name="photos"> Seleccionar</ion-icon></button>
     </ion-col>
     <ion-col>
-      <button ion-button block ion-left ><ion-icon name="camera"> Camara</ion-icon></button>
+      <button ion-button block ion-left  (click)="mostrar_camara()"><ion-icon name="camera"> Camara</ion-icon></button>
 
     </ion-col>
   </ion-row>
