@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 import { SubirPage } from "../subir/subir";
 
-
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-
+//Servicios
+import {CargaArchivosService} from "../../providers/carga-archivos/carga-archivos";
 
 @Component({
   selector: 'page-home',
@@ -12,13 +11,11 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class HomePage {
 
-   posts: FirebaseListObservable<any[]>;
 
-  constructor(private modalCtrl:ModalController,
-              private af: AngularFireDatabase) {
+  constructor(private modalCtrl: ModalController,
+              private _car: CargaArchivosService) {
 
-      this.posts = af.list('/posts');
-
+                this._car.cargar_imagenes();
   }
 
   mostrar_modal(){
