@@ -6,6 +6,19 @@
       8Gag
     </ion-title>
 
+    <ion-buttons end>
+      <button ion-button
+              *ngIf="!_auth.authenticated"
+              (click)="ingresar()">
+        Ingresar
+      </button>
+      <button ion-button
+              *ngIf="_auth.authenticated"
+                (click)="salir()">
+        Salir
+      </button>
+    </ion-buttons>
+
 
   </ion-navbar>
 </ion-header>
@@ -24,7 +37,7 @@
 
     <ion-row>
       <ion-col text-right>
-        <button ion-button clear small color="primary" icon-left>
+        <button ion-button clear small color="primary" icon-left (click)="compartir( post )">
           <ion-icon name="share-alt"> Compartir</ion-icon>
         </button>
       </ion-col>
@@ -32,7 +45,8 @@
   </ion-card>
 
 
-  <ion-fab bottom right>
+  <ion-fab bottom right
+            *ngIf="_auth.authenticated">
     <button ion-fab
             color="danger"
             (click)="mostrar_modal()">
@@ -40,5 +54,9 @@
     </button>
 
   </ion-fab>
+
+  <ion-infinite-scroll (ionInfinite)="cargar_siguientes($event)" [enabled]="hayMas">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
 
 </ion-content>

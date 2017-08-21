@@ -22,7 +22,14 @@ import { PlaceholderPipe}  from "../pipes/placeholder/placeholder";
 //Plugins
 import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { Facebook } from '@ionic-native/facebook';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
+
+
+//Servicios
 import { CargaArchivosService } from '../providers/carga-archivos/carga-archivos';
+import { AuthService } from '../providers/auth-service/auth-service';
 
 
 @NgModule({
@@ -51,7 +58,10 @@ import { CargaArchivosService } from '../providers/carga-archivos/carga-archivos
     Camera,
     ImagePicker,
     CargaArchivosService,
+    Facebook,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService,
   ]
 })
 export class AppModule {}
